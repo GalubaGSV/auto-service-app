@@ -1,9 +1,8 @@
 package galuba.autoservice.service;
 
+import galuba.autoservice.model.Order;
 import java.math.BigDecimal;
 import java.util.List;
-import galuba.autoservice.model.Car;
-import galuba.autoservice.model.Order;
 
 public interface OrderService {
     Order save(Order order);

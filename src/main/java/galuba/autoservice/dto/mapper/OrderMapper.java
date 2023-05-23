@@ -1,6 +1,5 @@
 package galuba.autoservice.dto.mapper;
 
-import java.util.stream.Collectors;
 import galuba.autoservice.dto.OrderRequestDto;
 import galuba.autoservice.dto.OrderResponseDto;
 import galuba.autoservice.model.Goods;
@@ -10,12 +9,13 @@ import galuba.autoservice.model.OrderStatus;
 import galuba.autoservice.service.CarService;
 import galuba.autoservice.service.GoodsService;
 import galuba.autoservice.service.MaintenanceService;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-public class OrderMapper  implements DtoMapper<OrderRequestDto, OrderResponseDto, Order> {
+public class OrderMapper implements DtoMapper<OrderRequestDto, OrderResponseDto, Order> {
     private final CarService carService;
     private final GoodsService goodsService;
     private final MaintenanceService maintenanceService;

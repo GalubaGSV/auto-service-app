@@ -1,6 +1,5 @@
 package galuba.autoservice.controller;
 
-import java.util.List;
 import galuba.autoservice.dto.CarOwnerRequestDto;
 import galuba.autoservice.dto.CarOwnerResponseDto;
 import galuba.autoservice.dto.mapper.DtoMapper;
@@ -10,6 +9,7 @@ import galuba.autoservice.service.CarOwnerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,7 +35,8 @@ public class CarOwnerController {
         return mapper.mapToDto(carOwner);
     }
 
-    @Operation(summary = "Update CarOwner", description = "Select the CarOwner ID for the change fields")
+    @Operation(summary = "Update CarOwner",
+            description = "Select the CarOwner ID for the change fields")
     @PutMapping("/{id}")
     public void update(@Parameter(description = "Choose Id CarOwner",
                        schema = @Schema(type = "integer", defaultValue = "1"))

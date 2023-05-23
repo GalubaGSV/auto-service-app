@@ -1,14 +1,13 @@
 package galuba.autoservice.service.impl;
 
-import java.math.BigDecimal;
-import java.util.List;
-import galuba.autoservice.model.CarOwner;
 import galuba.autoservice.model.Maintenance;
 import galuba.autoservice.model.Order;
 import galuba.autoservice.repository.GoodsRepository;
 import galuba.autoservice.repository.MaintenancesRepository;
 import galuba.autoservice.repository.OrderRepository;
 import galuba.autoservice.service.OrderService;
+import java.math.BigDecimal;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

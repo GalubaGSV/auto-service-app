@@ -1,8 +1,5 @@
 package galuba.autoservice.model;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,13 +10,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import lombok.Data;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -48,16 +44,3 @@ public class Order {
     private BigDecimal finalPrice;
     private LocalDate finalDate;
 }
-
-
-/**
- * • Машина
- * • Описание проблемы с которой обратились
- * • Дата принятия
- * • Услуги включенные в заказ
- * • Товары включенные в заказ
- * • Статус (принято, в процессе, успешно завершено, не успешно завершено,
- * оплачено)
- * • Итоговая стоимость для клиента
- * • Дата завершения
- */

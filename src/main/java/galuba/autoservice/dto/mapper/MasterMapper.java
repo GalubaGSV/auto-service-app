@@ -1,12 +1,12 @@
 package galuba.autoservice.dto.mapper;
 
-import java.util.Collections;
-import java.util.stream.Collectors;
 import galuba.autoservice.dto.MasterRequestDto;
 import galuba.autoservice.dto.MasterResponseDto;
 import galuba.autoservice.model.Master;
 import galuba.autoservice.model.Order;
 import galuba.autoservice.service.OrderService;
+import java.util.Collections;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

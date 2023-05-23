@@ -1,7 +1,7 @@
 package galuba.autoservice.service;
 
-import java.util.List;
 import galuba.autoservice.model.Car;
+import java.util.List;
 
 public interface CarService {
     Car save(Car car);
