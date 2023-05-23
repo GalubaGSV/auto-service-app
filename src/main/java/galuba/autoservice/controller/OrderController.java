@@ -1,6 +1,5 @@
 package galuba.autoservice.controller;
 
-import java.time.LocalDate;
 import galuba.autoservice.dto.OrderFinalPrice;
 import galuba.autoservice.dto.OrderRequestDto;
 import galuba.autoservice.dto.OrderResponseDto;
@@ -13,6 +12,7 @@ import galuba.autoservice.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +32,8 @@ public class OrderController {
 
     @Operation(summary = "Add new order", description = "Add order in request body.")
     @PostMapping
-    public OrderResponseDto add(@Parameter(schema = @Schema(type = "String", defaultValue = "{\"carId\": 1, "
+    public OrderResponseDto add(@Parameter(schema = @Schema(type = "String",
+                                        defaultValue = "{\"carId\": 1, "
                                         + "\"problemDescription\": \"Somting wrong\", "
                                         + "\"startDate\": \"2023-05-18T10:30:00Z\", "
                                         + "\"orderStatus\": \"Accepted\" }"))
@@ -74,7 +75,8 @@ public class OrderController {
 
     @Operation(summary = "Update status for order",
             description = "Input order and changes status. Status can be: "
-                    + "Accepted, In_progress, Successfully_completed, Not_successfully_completed, Paid")
+                    + "Accepted, In_progress, Successfully_completed, "
+                    + "Not_successfully_completed, Paid")
     @PutMapping("/{id}/{newStatus}")
     public OrderResponseDto updateStatus(@Parameter(description = "Choose Id order",
                                    schema = @Schema(type = "integer", defaultValue = "1"))
@@ -93,7 +95,8 @@ public class OrderController {
     }
 
     @Operation(summary = "Calculate final price for order",
-            description = "Calculation of the total amount of the order, taking into account discounts.")
+            description = "Calculation of the total amount of the order, "
+                    + "taking into account discounts.")
     @GetMapping("/{orderId}/calculatePrice")
     public OrderFinalPrice getMasterSalary(@Parameter(description = "Choose Id order",
                                            schema = @Schema(type = "integer", defaultValue = "1"))

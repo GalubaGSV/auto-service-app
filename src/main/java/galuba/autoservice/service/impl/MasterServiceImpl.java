@@ -1,21 +1,21 @@
 package galuba.autoservice.service.impl;
 
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.stream.Collectors;
 import galuba.autoservice.model.Maintenance;
 import galuba.autoservice.model.Master;
 import galuba.autoservice.model.PaymentStatus;
 import galuba.autoservice.repository.MaintenancesRepository;
 import galuba.autoservice.repository.MasterRepository;
 import galuba.autoservice.service.MasterService;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
 public class MasterServiceImpl implements MasterService {
-    private static final  BigDecimal SALARY_INTEREST = new BigDecimal("0.40");
+    private static final BigDecimal SALARY_INTEREST = new BigDecimal("0.40");
     private final MasterRepository masterRepository;
     private final MaintenancesRepository maintenancesRepository;
 
@@ -31,7 +31,7 @@ public class MasterServiceImpl implements MasterService {
     }
 
     @Override
-    public BigDecimal CalculateSalary(Long id) {
+    public BigDecimal calculateSalary(Long id) {
         List<Maintenance> noPaidMaintenances = maintenancesRepository.findAllByMaster_Id(id)
                 .stream()
                 .filter(m -> m.getPaymentStatus().equals(PaymentStatus.NOT_PAID))

@@ -24,7 +24,8 @@ public class MaintenanceController {
     private final MaintenanceService maintenanceService;
     private final DtoMapper<MaintenanceRequestDto, MaintenanceResponseDto, Maintenance> mapper;
 
-    @Operation(summary = "Add maintenance", description = "Creation of the essence of the maintenance")
+    @Operation(summary = "Add maintenance",
+            description = "Creation of the essence of the maintenance")
     @PostMapping
     public MaintenanceResponseDto add(@Parameter(schema = @Schema(type = "sіtring",
                                     defaultValue = "{\"name\":\"Some service\", "
@@ -36,7 +37,8 @@ public class MaintenanceController {
         return mapper.mapToDto(maintenance);
     }
 
-    @Operation(summary = "Update maintenance", description = "Input the maintenance ID for the change fields")
+    @Operation(summary = "Update maintenance",
+            description = "Input the maintenance ID for the change fields")
     @PutMapping("/{id}")
     public void update(@Parameter(description = "Choose Id maintenance",
                        schema = @Schema(type = "integer", defaultValue = "1"))

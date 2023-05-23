@@ -1,6 +1,5 @@
 package galuba.autoservice.controller;
 
-import java.util.List;
 import galuba.autoservice.dto.MasterRequestDto;
 import galuba.autoservice.dto.MasterResponseDto;
 import galuba.autoservice.dto.MasterSalaryDto;
@@ -11,6 +10,7 @@ import galuba.autoservice.service.MasterService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -69,7 +69,7 @@ public class MasterController {
         MasterSalaryDto masterSalaryDto = new MasterSalaryDto();
         masterSalaryDto.setId(masterId);
         masterSalaryDto.setName(masterService.findById(masterId).getName());
-        masterSalaryDto.setSalary(masterService.CalculateSalary(masterId));
+        masterSalaryDto.setSalary(masterService.calculateSalary(masterId));
         return masterSalaryDto;
     }
 }

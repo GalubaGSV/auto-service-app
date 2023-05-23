@@ -1,7 +1,6 @@
 package galuba.autoservice.dto;
 
 import java.math.BigDecimal;
-import galuba.autoservice.model.Order;
 import lombok.Getter;
 import lombok.Setter;
 

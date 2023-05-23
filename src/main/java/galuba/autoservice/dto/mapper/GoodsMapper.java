@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-public class GoodsMapper implements DtoMapper<GoodsRequestDto, GoodsResponseDto, Goods>{
+public class GoodsMapper implements DtoMapper<GoodsRequestDto, GoodsResponseDto, Goods> {
     private final OrderService orderService;
 
     @Override
