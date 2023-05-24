@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class OrderServiceImpl implements OrderService {
-    private static final double GOODS_SALE_MULTIPLE = 0.01;
-    private static final double MAINTENANCE_SALE_MULTIPLE = 0.02;
+    private static final double GOODS_DISCOUNT_MULTIPLIER = 0.01;
+    private static final double MAINTENANCE_DISCOUNT_MULTIPLIER = 0.02;
     private static final String DIAGNOSTIC_SERVICE = "Diagnostics";
     private final OrderRepository orderRepository;
     private final MaintenancesRepository maintenancesRepository;
@@ -46,7 +46,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private BigDecimal calculateGoodsPrice(int orderCount, Long orderId) {
-        double goodsSale = orderCount * GOODS_SALE_MULTIPLE;
+        double goodsSale = orderCount * GOODS_DISCOUNT_MULTIPLIER;
         return goodsRepository.findAllByOrder_Id(orderId).stream()
                 .map(m -> m.getPrice())
                 .reduce(BigDecimal.ZERO, BigDecimal::add)
@@ -54,7 +54,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private BigDecimal calculateMaintenancePrice(int orderCount, Long orderId) {
-        double maintenanceSale = orderCount * MAINTENANCE_SALE_MULTIPLE;
+        double maintenanceSale = orderCount * MAINTENANCE_DISCOUNT_MULTIPLIER;
         List<Maintenance> allByOrderId = maintenancesRepository.findAllByOrder_Id(orderId);
         if (allByOrderId.size() > 1) {
             BigDecimal maintenancePrice = allByOrderId.stream()

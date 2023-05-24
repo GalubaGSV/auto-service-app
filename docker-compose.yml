@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   postgres:
-    image: galuba/postgres
+    image: postgres
     env_file: ./.env
     ports:
       - $POSTGRES_LOCAL_PORT:$POSTGRES_DOCKER_PORT

@@ -8,11 +8,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "masters")
 public class Master {
@@ -20,6 +20,8 @@ public class Master {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     @OneToMany(mappedBy = "id")
     @Column(name = "orders_id")
     private List<Order> orders;

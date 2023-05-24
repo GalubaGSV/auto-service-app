@@ -10,11 +10,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "goods")
 public class Goods {
@@ -23,6 +23,8 @@ public class Goods {
     private Long id;
     private String name;
     private BigDecimal price;
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     @JsonIgnore
