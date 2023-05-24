@@ -98,7 +98,7 @@ public class OrderController {
             description = "Calculation of the total amount of the order, "
                     + "taking into account discounts.")
     @GetMapping("/{orderId}/calculatePrice")
-    public OrderFinalPrice getMasterSalary(@Parameter(description = "Choose Id order",
+    public OrderFinalPrice getFinallyPrice(@Parameter(description = "Choose Id order",
                                            schema = @Schema(type = "integer", defaultValue = "1"))
                                            @PathVariable Long orderId) {
         OrderFinalPrice orderFinalPrice = new OrderFinalPrice();
